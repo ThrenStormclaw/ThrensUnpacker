@@ -1,0 +1,25 @@
+Version 0.1 (3/3/24)
+First Functional Prototype of Generic lsj file unpacker (dunno why it's called that it's just JSON. Wait... is it Larian Studios JSON. That would be so dumb, but also tracks).
+-> Added some flags. Mostly just for trimming down stuff rn. Need to set that up into a config file setup or something to make it easier for the end-users to adjust later.
+-> Added in a function to convert any vec3 variable in the files into RGB-256 format, along with hex code.
+
+Version 0.2 (3/5/24)
+Add in the ability to translate from the 4x4 matrices for level geometry to Cartesian (x, y, z) Coordinates and Angles (Heading, Bank, Attitude - These may be called other things, depending on program, context, etc).
+
+Version 0.3 (3/7/24)
+UPDATE: I was really dumb. Really really dumb. I assumed, given the lsj file extension that it was a custom file-encoding used by Larian that was sorta similar to JSON. Nope. It's literally just JSON. I spent two hours coding subpar code for parsing JSON data when smarter people have done it better. AAAAAAAA. But hey, it'll be way easier to do other things once I refactor the code to use the Python JSON package.
+Code refactored. (0_0) Remind me to use functions from the start, next time
+
+Version 0.4 (PLANNED)
+Batch inputs -> outputs without user renaming files
+
+
+TO-DO (PLANNED. Could appear at any point in here, really).
+Make the color tool NOT target other fvec3 variables that AREN'T actually colors. (Related to object functionality, probably - see below)
+-> Config file so the user has an easier time putting in/changing options
+-> Maybe have some functionality for OBJECTS
+---> Basically, we'd look for variables that're all at the same depth (with no depth changes in between more than 1 (for each var in the group)) and group it together, spitting that stuff out in discrete chunks.
+-> Flags for:
+---> The color thing
+---> The 4x4matrix thing
+------> Rounding off the matrix numbers 
